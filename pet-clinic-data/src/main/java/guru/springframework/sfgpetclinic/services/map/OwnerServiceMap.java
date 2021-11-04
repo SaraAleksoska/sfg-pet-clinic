@@ -18,7 +18,7 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
     public void delete(Owner object) {super.delete(object);}
 
     @Override
-    public Owner save(Owner object) {return super.save(object.getId(), object);}
+    public Owner save(Owner object) {return super.save(object);}
 
     @Override
     public Owner findByID(Long id) {return super.findByID(id);}
