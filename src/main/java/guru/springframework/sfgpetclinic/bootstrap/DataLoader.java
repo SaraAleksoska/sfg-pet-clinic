@@ -13,7 +13,7 @@ public class DataLoader implements CommandLineRunner {
 
     private final OwnerService ownerService;
     private final VetService vetService;
-    
+
     public DataLoader(OwnerService ownerService, VetService vetService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
@@ -46,7 +46,7 @@ public class DataLoader implements CommandLineRunner {
         vetService.save(vet1);
 
         Vet vet2 = new Vet();
-        vet1.setId(2L);
+        vet2.setId(2L);
         vet2.setFirstName("Jessie");
         vet2.setLastName("Porter");
 
