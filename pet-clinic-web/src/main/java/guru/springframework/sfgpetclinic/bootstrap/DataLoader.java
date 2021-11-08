@@ -1,10 +1,7 @@
 package guru.springframework.sfgpetclinic.bootstrap;
 
 import guru.springframework.sfgpetclinic.model.*;
-import guru.springframework.sfgpetclinic.services.OwnerService;
-import guru.springframework.sfgpetclinic.services.PetTypeService;
-import guru.springframework.sfgpetclinic.services.SpecialtyService;
-import guru.springframework.sfgpetclinic.services.VetServices;
+import guru.springframework.sfgpetclinic.services.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -17,12 +14,14 @@ public class DataLoader implements CommandLineRunner {
     private final VetServices vetService;
     private final PetTypeService petTypeService;
     private final SpecialtyService specialtyService;
+    private final VisitService visitService;
 
-    public DataLoader(OwnerService ownerService, VetServices vetService, PetTypeService petTypeService, SpecialtyService specialtiesService, SpecialtyService specialtyService) {
+    public DataLoader(OwnerService ownerService, VetServices vetService, PetTypeService petTypeService, SpecialtyService specialtiesService, SpecialtyService specialtyService, VisitService visitService) {
         this.ownerService = ownerService;
         this.petTypeService = petTypeService;
         this.vetService = vetService;
         this.specialtyService = specialtyService;
+        this.visitService = visitService;
     }
     @Override
     public void run(String... args) throws Exception {
@@ -84,6 +83,11 @@ public class DataLoader implements CommandLineRunner {
         fionasCat.setName("Archie");
         owner2.getPets().add(fionasCat);
 
+        Visit catVisit = new Visit();
+        catVisit.setPet(fionasCat);
+        catVisit.setDate(LocalDate.now());
+        catVisit.setDescription("Sneezy Kitty");
+        visitService.save(catVisit);
 
         System.out.println("Loaded Owners....");
 
