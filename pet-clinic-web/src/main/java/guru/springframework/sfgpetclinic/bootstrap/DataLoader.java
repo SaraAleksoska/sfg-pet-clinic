@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 import java.time.LocalDate;
 
 @Component
-public class DataLoader /*implements CommandLineRunner*/ {
+public class DataLoader /*implements CommandLineRunner*/{
 
     private final OwnerService ownerService;
     private final VetServices vetService;
@@ -23,15 +23,15 @@ public class DataLoader /*implements CommandLineRunner*/ {
         this.specialtyService = specialtyService;
         this.visitService = visitService;
     }
-  /*  @Override
+    /*@Override
     public void run(String... args) throws Exception {
 
         int count = petTypeService.findAll().size();
         if (count == 0){
             loadData();
         }
-    }*/
-
+    }
+*/
     private void loadData() {
         PetType dog = new PetType();
         dog.setName("Dog");
